@@ -6,4 +6,5 @@ and skips characters corresponding to 'e' (code 101) and 'q' (code 113).
 """
 for i in range(97, 123):
     if i != 101 and i != 113:
-        print("{}".format(chr(i)), end="")
+        print("{}".format(chr(i)), end=""
+              )
