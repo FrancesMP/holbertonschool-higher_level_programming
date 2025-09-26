@@ -1,17 +1,16 @@
 #!/usr/bin/python3
-safe_print_integer = __import__('1-safe_print_integer').safe_print_integer
+"""
+This module defines a custom list class.
+"""
 
-value = 89
-has_been_print = safe_print_integer(value)
-if not has_been_print:
-    print("{} is not an integer".format(value))
 
-value = -89
-has_been_print = safe_print_integer(value)
-if not has_been_print:
-    print("{} is not an integer".format(value))
+class MyList(list):
+    """
+    A custom list class that extends the built-in list.
+    """
 
-value = "School"
-has_been_print = safe_print_integer(value)
-if not has_been_print:
-    print("{} is not an integer".format(value))
+    def print_sorted(self):
+        """
+        Print the list elements in sorted order.
+        """
+        print(sorted(self))
