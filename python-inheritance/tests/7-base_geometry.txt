@@ -1,0 +1,33 @@
+"""
+Docstring test file
+"""
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+
+
+# Test with normal behavior
+>>> bg.integer_validator("my_int", 12)
+True
+
+# Test with normal behavior
+>>> bg.integer_validator("width", 89)
+True
+
+# Test with a non int
+>>> bg.integer_validator("name", "John")
+Traceback (most recent call last):
+...
+TypeError: name must be an integer
+
+# Test with a value = 0
+>>> bg.integer_validator("age", 0)
+Traceback (most recent call last):
+...
+ValueError: age must be greater than 0
+
+# Test with negative distance
+>>> bg.integer_validator("distance", -4)
+Traceback (most recent call last):
+...
+ValueError: distance must be greater than 0
