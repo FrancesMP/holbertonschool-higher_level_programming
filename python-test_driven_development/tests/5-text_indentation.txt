@@ -1,0 +1,37 @@
+>>> from 5-text_indentation import text_indentation
+
+# Simple sentence with all punctuations
+>>> text_indentation("Hello. How are you? I'm fine: thank you.")
+Hello.
+ 
+How are you?
+ 
+I'm fine:
+ 
+thank you.
+
+# Sentence with multiple punctuations in a row
+>>> text_indentation("Wait... Really? Yes: absolutely.")
+Wait.
+ 
+.
+ 
+.
+ 
+Really?
+ 
+Yes:
+ 
+absolutely.
+
+# Invalid input type
+>>> text_indentation(123)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+# Leading/trailing spaces should be removed
+>>> text_indentation("  Hi there.  Bye: ")
+Hi there.
+ 
+Bye:

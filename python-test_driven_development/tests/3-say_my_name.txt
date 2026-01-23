@@ -1,0 +1,23 @@
+>>> from 3-say_my_name import say_my_name
+
+# Full names
+>>> say_my_name("John", "Smith")
+My name is John Smith
+>>> say_my_name("Walter", "White")
+My name is Walter White
+
+# Only first name
+>>> say_my_name("Bob")
+My name is Bob
+
+# Invalid first_name type
+>>> say_my_name(12, "White")
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+# Invalid last_name type
+>>> say_my_name("John", 123)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
