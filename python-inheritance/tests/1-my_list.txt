@@ -1,0 +1,85 @@
+The MyList module
+=================
+
+This module provides tests for the MyList class.
+
+# Import MyList
+MyList = __import__('1-my_list').MyList
+
+# Basic functionality
+my_list = MyList()
+my_list.append(1)
+my_list.append(4)
+my_list.append(2)
+my_list.append(3)
+my_list.append(5)
+print(my_list)        # [1, 4, 2, 3, 5]
+my_list.print_sorted()  # [1, 2, 3, 4, 5]
+print(my_list)        # [1, 4, 2, 3, 5]
+
+# Test with negative numbers
+my_list2 = MyList()
+my_list2.append(-1)
+my_list2.append(4)
+my_list2.append(-2)
+my_list2.append(3)
+my_list2.print_sorted()  # [-2, -1, 3, 4]
+
+# Test with empty list
+my_list3 = MyList()
+my_list3.print_sorted()  # []
+
+# Test with one element
+my_list4 = MyList()
+my_list4.append(42)
+my_list4.print_sorted()  # [42]
+
+# Test with duplicate elements
+my_list5 = MyList()
+my_list5.append(1)
+my_list5.append(3)
+my_list5.append(1)
+my_list5.append(3)
+my_list5.print_sorted()  # [1, 1, 3, 3]
+
+# Test with already sorted list
+my_list6 = MyList()
+my_list6.append(1)
+my_list6.append(2)
+my_list6.append(3)
+my_list6.append(4)
+my_list6.print_sorted()  # [1, 2, 3, 4]
+
+# Test with reverse sorted list
+my_list7 = MyList()
+my_list7.append(4)
+my_list7.append(3)
+my_list7.append(2)
+my_list7.append(1)
+my_list7.print_sorted()  # [1, 2, 3, 4]
+
+# Test initialization with values
+my_list8 = MyList([3, 1, 4, 1, 5])
+my_list8.print_sorted()  # [1, 1, 3, 4, 5]
+print(my_list8)          # [3, 1, 4, 1, 5]
+
+# Test that MyList is a subclass of list
+print(isinstance(my_list, list))    # True
+print(isinstance(my_list, MyList))  # True
+
+# Test that print_sorted method exists
+print(hasattr(MyList, 'print_sorted'))  # True
+
+# Test with large numbers
+my_list9 = MyList()
+my_list9.append(1000)
+my_list9.append(1)
+my_list9.append(500)
+my_list9.print_sorted()  # [1, 500, 1000]
+
+# Test with zero
+my_list10 = MyList()
+my_list10.append(0)
+my_list10.append(-1)
+my_list10.append(1)
+my_list10.print_sorted()  # [-1, 0, 1]

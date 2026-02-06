@@ -1,0 +1,71 @@
+The BaseGeometry module
+=======================
+
+This module provides tests for the BaseGeometry class.
+
+# Import BaseGeometry
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+# Create a BaseGeometry instance
+bg = BaseGeometry()
+
+# Test area method (should raise Exception)
+try:
+    bg.area()
+except Exception as e:
+    print(e)  # area() is not implemented
+
+# Test integer_validator with valid values
+bg.integer_validator("my_int", 12)
+bg.integer_validator("width", 89)
+bg.integer_validator("height", 1)
+
+# Test integer_validator with invalid values
+invalid_tests = [
+    ("name", "John"),        # string
+    ("age", 0),              # zero
+    ("distance", -4),        # negative
+    ("width", 3.14),         # float
+    ("value", None),         # None
+    ("flag", True),          # boolean True
+    ("flag", False),         # boolean False
+    ("numbers", [1, 2, 3]),  # list
+    ("coordinates", (1, 2)), # tuple
+    ("data", {"key": "value"}), # dict
+    ("unique", {1, 2, 3}),   # set
+    ("neg", -1)              # negative one
+]
+
+for name, value in invalid_tests:
+    try:
+        bg.integer_validator(name, value)
+    except Exception as e:
+        print(f"{name}: {e}")
+
+# Test integer_validator with large positive number
+bg.integer_validator("big", 1000000)
+
+# Check class type and instance
+print(type(BaseGeometry))        # <class 'type'>
+print(isinstance(bg, BaseGeometry))  # True
+
+# Check methods existence
+print(hasattr(BaseGeometry, 'area'))               # True
+print(hasattr(BaseGeometry, 'integer_validator')) # True
+
+# Test integer_validator with missing arguments
+try:
+    bg.integer_validator("test")
+except TypeError as e:
+    print(e)
+
+try:
+    bg.integer_validator()
+except TypeError as e:
+    print(e)
+
+# Test area with extra arguments (should still raise Exception)
+try:
+    bg.area("test")
+except TypeError as e:
+    print(e)
