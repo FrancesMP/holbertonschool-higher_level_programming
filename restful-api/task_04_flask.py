@@ -6,10 +6,10 @@ Simple API using Python & Flask
 
 from flask import Flask, jsonify, request
 
-# Create a Flask application
+
 app = Flask(__name__)
 
-# User dictionary for tests :
+
 users = {}
 
 
@@ -78,7 +78,7 @@ def add_user():
     """
     retrieved_data = request.get_json()
 
-    # Check if dictionnary contains a username key
+
     if not retrieved_data or "username" not in retrieved_data:
         return jsonify({"error": "Username is required"}), 400
 
@@ -90,3 +90,4 @@ def add_user():
 
 if __name__ == "__main__":
     app.run()
+    
