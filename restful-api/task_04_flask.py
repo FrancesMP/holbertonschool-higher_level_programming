@@ -76,16 +76,34 @@ def add_user():
     Returns:
        user data successfully added
     """
+    # Check if the request contains valid JSON
+    if not request.is_json:
+        return jsonify({"error": "Invalid JSON"}), 400
+    
     retrieved_data = request.get_json()
-
-
-    if not retrieved_data or "username" not in retrieved_data:
+    
+    # Check if data exists
+    if not retrieved_data:
+        return jsonify({"error": "Invalid JSON"}), 400
+    
+    # Check if username is provided
+    if "username" not in retrieved_data:
         return jsonify({"error": "Username is required"}), 400
-
+    
     username = retrieved_data["username"]
+    
+    # Check if username already exists
+    if username in users:
+        return jsonify({"error": "Username already exists"}), 409
+    
+    # Add the user
     users[username] = retrieved_data
-
-    return jsonify({"message": "User added", "user": users[username]}), 201
+    
+    # Return success response
+    return jsonify({
+        "message": "User added",
+        "user": users[username]
+    }), 201
 
 
 if __name__ == "__main__":
