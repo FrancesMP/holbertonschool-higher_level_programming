@@ -1,0 +1,3 @@
+-- DELETING WITH CONDITION
+
+DELETE FROM second_table WHERE score < 6;
