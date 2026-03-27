@@ -1,16 +1,9 @@
 #!/usr/bin/python3
-"""
-This module defines a custom list class.
-"""
-
-
+"""Task 1 : My List """
 class MyList(list):
-    """
-    A custom list class that extends the built-in list.
-    """
-
+    """Create the class"""
     def print_sorted(self):
-        """
-        Print the list elements in sorted order.
-        """
-        print(sorted(self))
+        """ Function that print a list of the instances of a given class """
+        sort_list = sorted(self)
+        print(sort_list)
+        

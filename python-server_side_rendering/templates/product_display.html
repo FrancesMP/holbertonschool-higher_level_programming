@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Products</title>
+</head>
+<body>
+    {% include 'header.html' %}
+    <h1>Product List</h1>
+
+    {% if error %}
+        <p style="color:red">{{ error }}</p>
+    {% elif products %}
+        <table border="1">
+            <tr><th>Name</th><th>Category</th><th>Price ($)</th></tr>
+            {% for p in products %}
+                <tr>
+                    <td>{{ p.name }}</td>
+                    <td>{{ p.category }}</td>
+                    <td>{{ "%.2f"|format(p.price) }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No products available.</p>
+    {% endif %}
+
+    {% include 'footer.html' %}
+</body>
+</html>
